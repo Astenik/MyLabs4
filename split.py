@@ -1,25 +1,32 @@
-def  split(source, sep):
-      '''this function returns list consists of the subjunctiveս of source. 
-      source is the first argument of function.'''
-      lst = []
-      index = 0
-      j = 0
-      while  j <= len(source):
+def  split(source, sep, count = -1):
+       lst = []
+       index = 0
+       j = 0
+       num = sep[0]
+       q = 0
+       while  j < len(source):
             name = ''
-            for ind in range(len(source)):
-                 if source[ind] == sep:
-                       index = ind
+            for i in range(len(source)):
+                 if (source[i] == num) and (source[i:(i + len(sep))] == sep):
+                       index = i
+                       q += 1
                        break
-                 else: 
-                       name += source[ind] 
+                 elif (source[i] != num):
+                       name += source[i] 
                        continue
             lst.append(name)
             string = ''
-            for i in range(index + 1, len(source)):
-                  string += source[i]
+            for ind in range(index + len(sep), len(source)):
+                  string += source[ind]
             source = string
+            if q == count:
+                  lst.append(source)
+                  break
             j += 1
-      return lst
+       return lst
 
 string = input("insert your string: ")
-print(f"your list consists of your string is: {split(string, ',')}")
+sep = input("insert the sep: ")
+count = int(input("insert the count: "))
+print(f"your list consists of your string is: {split(string, sep, count)}")
+         
