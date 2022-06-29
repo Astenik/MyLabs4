@@ -14,16 +14,21 @@ def repleace(source, old, new):
                         continue
              for ind in range(len(lst)):
                   if lst[ind] == old:
-                      name = ''
-                      for ind1 in range(i + ind*len(old)):
-                            name += source[ind1]
-                      name += new
-                      for ind2 in range((ind + 1)*len(old) + i, len(source)):
-                            name += source[ind2]
-                      source = name
+                       name = ''
+                       for ind1 in range(i):
+                             name += source[ind1]
+                       for ind2 in range(ind):
+                             name += lst[ind2]
+                       name += new
+                       for ind3 in range(i + (ind + 1)*len(old), len(source)):
+                             name += source[ind3]
+                       source = name
+                       continue
                   else:
-                        continue
+                       continue
              i += 1
         return name
-
-print(repleace('enastenikenkjuy', 'en', 'x'))
+name = input("insert name: ")
+old = input("insert the old name: ")
+new = input("insert new name: ")
+print(repleace(name, old, new))
