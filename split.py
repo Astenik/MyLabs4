@@ -11,7 +11,7 @@ def  split(source, sep, count = -1):
                        index = i
                        q += 1
                        break
-                 elif (source[i] != num):
+                 elif source[i] != num:
                        name += source[i] 
                        continue
             lst.append(name)
