@@ -1,4 +1,7 @@
 def  split(source, sep, count = -1):
+       '''this function returns the list consists of your source string that is splited with sep string.
+       source is the first argument of function. sep is the secont argument of function.
+       the third argument is count that defoult is -1.'''
        lst = []
        index = 0
        j = 0
