@@ -1,30 +1,20 @@
-def  repleace(source, old, new, count = -1):
-        '''this funtion repleace old with new in source.'''
-       index = 0
-       name = source
-       num = old[0]
+def repleace(source, old, new, count = -1):
        q = 0
-       while  name != None:
-            for i in range(len(source)):
-                 if (source[i] == num) and (source[i:(i + len(old))] == old):
-                       index = i
+       for i in range(len(source)):
+              if source[i:(i + len(old)] == old:
+                       string = ''
+                       string += source[:i]
+                       string += new
+                       string += source[(i + len(old):]
+                       source = string
                        q += 1
-                       break
-                 elif source[i] != num:
-                       continue
-            string = ''
-            string += source[:index]
-            string += new
-            string += source[(index + len(old)):]
-            source = string
-            if q == count:
-                  break
-            else:
-                 continue
-            name = source[(index + len(old)):]
+              if q == count:
+                        break
+              else:
+                        continue
        return string
-source = input("insert your string: ")
+
+source = input("insert the string: ")
 old = input("insert old string: ")
 new = input("insert new string: ")
-count = int(input("insert count: "))
-print(f'your new string is: {repleace(source, old, new, count)}')
+print(f'your new string is: {repleace(source, old, new)}')
